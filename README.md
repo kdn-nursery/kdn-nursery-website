@@ -1,6 +1,6 @@
 # 🌿 KDN Nursery — Kaviyadevan Nursery Garden
 
-> A bilingual online plant shop and nursery management platform for Kaviyadevan Nursery Garden, Dharmapuri, Tamil Nadu.
+> A bilingual (English and Tamil) online plant shop and nursery management platform for Kaviyadevan Nursery Garden, Dharmapuri, Tamil Nadu, India.
 
 ![Project Status](https://img.shields.io/badge/status-in%20development-orange)
 ![Next.js](https://img.shields.io/badge/Next.js-App%20Router-black?logo=next.js)
@@ -12,97 +12,249 @@
 
 ---
 
-## 📖 About
+## 📑 Table of Contents
 
-**KDN Nursery** is being developed to help customers discover, select and purchase plants online, learn how to care for them, and contact the nursery through WhatsApp. A mobile-friendly admin dashboard will let the owner manage products, prices, availability, orders, offers and website content.
+- [About the Project](#-about-the-project)
+- [Business Overview](#-business-overview)
+- [Product Catalogue](#-product-catalogue)
+- [Planned Features](#-planned-features)
+- [Technology Stack](#-technology-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Environment Variables](#-environment-variables)
+- [Database and Prisma](#-database-and-prisma)
+- [Business Rules and Operating Policies](#-business-rules-and-operating-policies)
+- [Order Lifecycle](#-order-lifecycle)
+- [Design Principles](#-design-principles)
+- [Development Roadmap](#-development-roadmap)
+- [Testing and Launch Checklist](#-testing-and-launch-checklist)
+- [SEO, Analytics and Monitoring](#-seo-analytics-and-monitoring)
+- [Git Development Workflow](#-git-development-workflow)
+- [Commit Message Convention](#-commit-message-convention)
+- [Decisions to Confirm Before Launch](#-decisions-to-confirm-before-launch)
+- [Contact](#-contact)
 
-**Vision:** Build a trusted local nursery brand in Dharmapuri and nearby areas, grow online and bulk sales, and gradually expand delivery across Tamil Nadu.
+---
+
+## 📖 About the Project
+
+**KDN Nursery (Kaviyadevan Nursery Garden)** is being developed as an online platform that helps customers discover, select and purchase plants conveniently. Customers will be able to browse plants by category, explore product photographs and availability, learn how to care for plants, and contact the nursery through WhatsApp.
+
+The platform will also include a secure, mobile-friendly admin dashboard that enables the owner to manage products, categories, prices, stock availability, orders, offers, banners, plant-care guides and selected website content.
+
+### Vision
+
+Build a trusted local nursery brand in Dharmapuri and nearby areas, increase online and bulk sales, and gradually expand delivery coverage across Tamil Nadu.
+
+### Project Objectives
+
+- Establish a professional online presence for Kaviyadevan Nursery Garden.
+- Make plant discovery and purchasing convenient for local customers.
+- Provide product information in both English and Tamil.
+- Simplify product, price, inventory and order management.
+- Support online payments and transparent order tracking.
+- Encourage repeat purchases through useful plant-care information.
+- Build a scalable foundation for future digital services.
+
+### Project Status
+
+The project is **in development**. Features documented as planned or future enhancements may not yet be implemented. Update this README as implementation progresses so that the documentation accurately reflects the application.
+
+## 🏡 Business Overview
 
 | Detail | Information |
 |---|---|
-| Business | Kaviyadevan Nursery Garden (KDN Nursery) |
+| Business name | Kaviyadevan Nursery Garden (KDN Nursery) |
 | Owner | Kaviya Devendhiran |
 | Location | Dharmapuri, Tamil Nadu, India |
 | Initial service areas | Dharmapuri Town, Vallampalli, Palacode and Harur |
-| Planned expansion | Across Tamil Nadu |
+| Planned expansion | Wider delivery coverage across Tamil Nadu |
 | Languages | English and Tamil |
-| Domain | `kdnnursery.in` — planned |
+| Planned domain | `kdnnursery.in` |
+| Primary enquiry channel | WhatsApp |
+| Additional channels | Instagram, email and store visits |
 | Project status | In development |
 
-## 🌱 Product categories
+The domain, contact details, service areas and operating policies must be confirmed before public launch.
 
-The initial catalogue is planned to include **30–50 products** across three categories:
+## 🌱 Product Catalogue
 
-- **Herbal plants:** Tulasi varieties, mint, rosemary, lemongrass, henna and hibiscus.
-- **Flowering plants:** Champa (Senbagam), hybrid hibiscus, December flower and other varieties.
-- **Fruit plants:** Guava, water apple, jackfruit, pomegranate, orange, mosambi, pomelo, sapota, avocado, rambutan, fig, jamun, amla, mango and dragon fruit.
+The initial catalogue is planned to contain approximately **30–50 products** across three major categories. The final selection will depend on the products, photographs, prices and seasonal availability confirmed by the nursery.
 
-The catalogue will grow as product details, availability and photographs are confirmed.
+### 1. Herbal Plants
 
-## ✨ Planned features
+- Tulasi varieties
+- Mint
+- Rosemary
+- Lemongrass
+- Henna
+- Hibiscus
 
-### Customer website
+### 2. Flowering Plants
 
-- Browse plants by category, search by English or Tamil name, and filter or sort products.
-- View product photos, pricing, availability, descriptions and plant-care guidance.
-- Add products to a cart and check out without creating an account.
-- Choose delivery or nursery pickup.
+- Champa (Senbagam)
+- Hybrid hibiscus
+- December flower
+- Other flowering varieties confirmed by the nursery
+
+### 3. Fruit Plants
+
+- Guava
+- Water apple
+- Jackfruit
+- Pomegranate
+- Orange
+- Mosambi
+- Pomelo
+- Sapota
+- Avocado
+- Rambutan
+- Fig
+- Jamun
+- Amla
+- Mango
+- Dragon fruit
+
+### Product Information Requirements
+
+Each product should support the relevant information below:
+
+- Product name in English and Tamil
+- Product category and plant variety
+- Product photographs
+- Short and detailed descriptions
+- Price and optional bulk pricing
+- Availability or out-of-stock status
+- Plant-care instructions
+- Relevant delivery or handling information
+- Searchable product name and readable URL
+- Appropriate image alt text
+
+Product details and stock status must be verified before publication. Seasonal availability may change, and the catalogue should be updated accordingly.
+
+## ✨ Planned Features
+
+### 1. Customer Website
+
+#### Product Discovery
+
+- Browse plants by category.
+- Search by English or Tamil product name.
+- Filter and sort products.
+- View product photographs, prices and availability.
+- Read detailed descriptions and plant-care instructions.
+- Explore dedicated plant-care guides.
+- Discover suitable plants through the Plant Finder quiz.
+
+#### Shopping and Checkout
+
+- Add products to a shopping cart.
+- Complete checkout without creating a customer account.
+- Choose eligible delivery or nursery pickup.
+- View the order total and applicable delivery charges.
 - Pay online through Razorpay using supported payment methods.
+- Receive order confirmation and a simple order receipt.
 - Check order status using an order number and phone number.
-- Save a wishlist on the device without signing in.
-- Use the **Plant Finder** quiz to discover suitable plants.
-- Read plant-care guides and view care details on product pages.
-- Enquire about products and bulk orders through WhatsApp.
+- Save a wishlist locally on the device without signing in.
+
+#### Customer Communication
+
+- Enquire about products through WhatsApp.
+- Submit bulk-order enquiries.
+- View nursery contact information.
 - Switch between English and Tamil.
-- View delivery, cancellation, refund, privacy and terms policies before ordering.
+- Review delivery, cancellation, refund, privacy and terms policies before ordering.
 
-### Admin dashboard
+### 2. Admin Dashboard
 
-- View order and sales summaries, popular products and unavailable items.
-- Add, edit and remove products, photos, categories and prices.
-- Update product availability quickly from a phone or computer.
-- Manage bulk prices, featured products, banners, offers and testimonials.
-- Edit plant-care guides and delivery settings.
-- Track orders, update fulfilment status and record courier details.
-- Review basic sales and visitor reports.
+The admin dashboard is planned to work on both mobile and desktop devices.
 
-### Future enhancements
+#### Product and Inventory Management
 
-- Customer reviews with photos, coupons and loyalty points.
-- WhatsApp order updates and plant-care reminders.
-- An AI plant assistant and photo-based plant identification.
-- An installable Progressive Web App (PWA).
+- Add, edit and remove products.
+- Manage product categories and photographs.
+- Update product descriptions and prices.
+- Update stock availability.
+- Manage bulk prices.
+- Mark featured products.
 
-These are planned features; their presence in this README does not mean they are already implemented.
+#### Website Content Management
 
-## 🧰 Tech stack
+- Manage banners and promotional offers.
+- Manage testimonials.
+- Edit plant-care guides.
+- Update delivery settings and selected website content.
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js App Router |
-| Language | TypeScript |
-| Styling and UI | Tailwind CSS, shadcn/ui |
-| Database | PostgreSQL (Neon or Supabase) |
-| ORM | Prisma |
-| Admin authentication | Auth.js |
-| Validation | Zod |
-| Image management | Cloudinary |
-| Payments | Razorpay |
-| Internationalisation | next-intl |
-| Analytics | Google Analytics 4 and/or Vercel Analytics |
-| Error monitoring | Sentry |
-| Hosting | Vercel |
+#### Order Management
 
-## 🗂️ Project structure
+- View new and existing orders.
+- Review order and payment statuses.
+- Update fulfilment status.
+- Record courier and shipment details.
+- Review unavailable products and popular products.
+- View basic sales and visitor reports.
 
-The following is the planned structure. Adjust it as implementation evolves.
+All admin routes and actions must require appropriate authentication and authorisation. Sensitive operations must be validated and executed on the server.
+
+### 3. Future Enhancements
+
+These features are intended for later stages and should not delay the initial shopping journey:
+
+- Customer reviews with photographs
+- Coupons and loyalty points
+- WhatsApp order updates
+- Plant-care reminders
+- AI-powered plant assistant
+- Photo-based plant identification
+- Installable Progressive Web App (PWA)
+
+> **Important:** Features listed in this section are planned, not necessarily implemented.
+
+## 🧰 Technology Stack
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| Framework | Next.js App Router | Website pages and application functionality |
+| Language | TypeScript | Type-safe application development |
+| Styling | Tailwind CSS | Responsive layouts and styling |
+| UI components | shadcn/ui | Reusable interface components |
+| Database | PostgreSQL | Products, categories, orders and payment-related records |
+| ORM | Prisma | Database access, schema management and migrations |
+| Admin authentication | Auth.js | Admin sign-in and session management |
+| Validation | Zod | Input and data validation |
+| Image management | Cloudinary | Product photographs and media |
+| Payments | Razorpay | Online payment processing |
+| Internationalisation | next-intl | English and Tamil language support |
+| Analytics | Google Analytics 4 and/or Vercel Analytics | Traffic and conversion measurement |
+| Error monitoring | Sentry | Application error monitoring |
+| Hosting | Vercel | Application deployment and hosting |
+
+### Database Hosting
+
+PostgreSQL may be hosted using a provider such as Neon or Supabase. The final provider, connection configuration and production environment must be confirmed before deployment.
+
+### Architecture Guidelines
+
+- Use server-side logic for pricing, delivery charges, stock validation and payment verification.
+- Keep database access and sensitive business operations on the server.
+- Use reusable UI components to maintain a consistent design.
+- Validate user input before processing or storing it.
+- Use Prisma migrations to manage database schema changes.
+- Keep secrets in environment variables, never in client-side code.
+- Separate payment status from order fulfilment status.
+
+## 🗂️ Project Structure
+
+The following is the proposed project structure. Actual folders and files may differ as development progresses.
 
 ```text
 kdn-nursery-website/
 ├── prisma/
 │   ├── schema.prisma
-│   └── seed.ts
+│   ├── seed.ts
+│   └── migrations/
 ├── public/
+│   └── images/
 ├── messages/
 │   ├── en.json
 │   └── ta.json
@@ -111,13 +263,16 @@ kdn-nursery-website/
 │   │   ├── [locale]/
 │   │   │   ├── page.tsx
 │   │   │   ├── shop/
-│   │   │   ├── [category]/[product]/
+│   │   │   ├── [category]/
+│   │   │   │   └── [product]/
 │   │   │   ├── plant-finder/
 │   │   │   ├── plant-care/
 │   │   │   ├── cart/
 │   │   │   ├── checkout/
 │   │   │   ├── order-status/
-│   │   │   └── about/ contact/ policies/
+│   │   │   ├── about/
+│   │   │   ├── contact/
+│   │   │   └── policies/
 │   │   ├── admin/
 │   │   └── api/
 │   ├── components/
@@ -128,19 +283,41 @@ kdn-nursery-website/
 │   ├── server/
 │   └── types/
 ├── .env.example
+├── .gitignore
+├── package.json
+├── tsconfig.json
 └── README.md
 ```
 
-## 🚀 Getting started
+### Folder Responsibilities
+
+- `prisma/` — Database schema, migrations and seed data.
+- `public/` — Public static assets.
+- `messages/` — English and Tamil translation messages.
+- `src/app/` — Application routes and pages.
+- `src/components/ui/` — Reusable interface components.
+- `src/components/shop/` — Shopping and catalogue components.
+- `src/components/admin/` — Admin-specific components.
+- `src/lib/` — Shared utilities and integrations.
+- `src/server/` — Server-side business logic and database operations.
+- `src/types/` — Shared TypeScript types.
+
+Keep secrets and private configuration out of `public/` and client-side components.
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
+Ensure that the following are installed or available:
+
 - Node.js 20 or newer
 - npm
-- A PostgreSQL database (local, Neon or Supabase)
+- Git
 - Access to the project repository
+- A PostgreSQL database, local or hosted
+- Credentials for external services required by the features being developed
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 Use the repository URL configured for your Git account:
 
@@ -149,61 +326,86 @@ git clone <repository-url>
 cd kdn-nursery-website
 ```
 
-If your Git SSH alias is configured, the project URL may be:
+If your SSH alias is configured, the repository URL may be:
 
 ```bash
 git clone git@github-kdn:kdn-nursery/kdn-nursery-website.git
+cd kdn-nursery-website
 ```
 
-### 2. Install dependencies
+### 2. Create a Task Branch
+
+Always start from the latest `dev` branch. Do not develop directly on `main` or `dev`.
+
+```bash
+git switch dev
+git pull origin dev
+git switch -c feature/short-feature-name
+```
+
+If `dev` is not yet available as a local branch after cloning, fetch remote branches and set up its tracking branch once:
+
+```bash
+git fetch origin
+git switch --track origin/dev
+```
+
+After setting up the local tracking branch, create a fresh feature branch for your task.
+
+Refer to the [Git Development Workflow](#-git-development-workflow) section for the complete process.
+
+### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Configure environment variables
+### 4. Configure Environment Variables
+
+Copy the example environment file if it exists:
 
 ```bash
 cp .env.example .env
 ```
 
-Fill in the required values in `.env`. Do not commit this file.
+Add the required development values to `.env`. If `.env.example` has not yet been created, create it using the variable names listed in the Environment Variables section.
 
-### 4. Set up the database
+Never commit `.env` or any file containing secrets.
 
-After confirming the Prisma schema and database connection are configured:
+### 5. Configure the Database
 
-```bash
-npx prisma migrate dev
-npx prisma db seed
-```
+Confirm that `DATABASE_URL` points to your development database. Verify that the Prisma schema and migrations exist before running database commands.
 
-If the seed script or migrations have not yet been created, complete those setup tasks first.
+See [Database and Prisma](#-database-and-prisma) for setup details.
 
-### 5. Start the development server
+### 6. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open the application at:
 
-### Available scripts
+[http://localhost:3000](http://localhost:3000)
+
+### Available Scripts and Commands
 
 | Command | Purpose |
 |---|---|
-| `npm run dev` | Start the local development server |
+| `npm run dev` | Start the development server |
 | `npm run build` | Create a production build |
 | `npm run start` | Run the production build locally |
-| `npm run lint` | Run lint checks |
+| `npm run lint` | Run configured lint checks |
 | `npx prisma studio` | Browse database records |
-| `npx prisma migrate dev --name <migration-name>` | Create a database migration |
+| `npx prisma migrate dev --name <migration-name>` | Create and apply a development migration |
+| `npx prisma generate` | Generate Prisma Client |
+| `npx prisma db seed` | Run the configured seed script |
 
-A command will work only after the corresponding script or configuration has been added to the project.
+A command will work only if the corresponding package, script or configuration exists. Check `package.json` and the Prisma configuration before relying on it.
 
-## 🔐 Environment variables
+## 🔐 Environment Variables
 
-Create a local `.env` file and keep it out of version control. Keep `.env.example` updated with variable names and blank values only.
+Create a local `.env` file and keep it out of version control. Maintain `.env.example` with variable names and blank or safe placeholder values.
 
 ```dotenv
 # Database
@@ -212,255 +414,331 @@ DATABASE_URL=
 # Admin authentication
 AUTH_SECRET=
 
-# Cloudinary
+# Cloudinary image management
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
 
-# Razorpay
+# Razorpay payments
 RAZORPAY_KEY_ID=
 RAZORPAY_KEY_SECRET=
 RAZORPAY_WEBHOOK_SECRET=
 NEXT_PUBLIC_RAZORPAY_KEY_ID=
 
-# Public site/contact configuration
+# Public website and contact configuration
 NEXT_PUBLIC_WHATSAPP_NUMBER=
 NEXT_PUBLIC_SITE_URL=
 ```
 
-Use test credentials during development. Never expose database credentials, authentication secrets, Cloudinary secrets, Razorpay secret keys or webhook secrets in client-side code or source control. Only values intentionally designed to be public should use the `NEXT_PUBLIC_` prefix.
+### Environment Variable Security
 
-## 🛒 Business rules
+- Use Razorpay test credentials during development.
+- Never expose database credentials, authentication secrets, Cloudinary API secrets, Razorpay secret keys or webhook secrets in client-side code.
+- Only values intentionally designed to be public should use the `NEXT_PUBLIC_` prefix.
+- Store production secrets in the hosting provider's environment-variable settings.
+- Rotate any credential that is accidentally committed or exposed.
+- Do not paste real credentials into issues, pull requests, logs or documentation.
+
+## 🗄️ Database and Prisma
+
+PostgreSQL is the planned relational database. Prisma will be used for database access, schema management and migrations.
+
+### Initial Database Setup
+
+After configuring `DATABASE_URL` and confirming that the Prisma schema and migrations are present, run the commands appropriate to the current project state.
+
+For an existing migration history:
+
+```bash
+npx prisma migrate dev
+npx prisma generate
+npx prisma db seed
+```
+
+For a project creating its initial migration, the first migration may instead be created with:
+
+```bash
+npx prisma migrate dev --name init
+```
+
+Do not run both initial migration alternatives blindly. Use the command that matches the repository's current migration history. If migrations or the seed script have not been created, implement those first.
+
+### Database Best Practices
+
+- Use a separate development database.
+- Do not experiment against production data.
+- Record schema changes through migrations.
+- Review generated migrations before applying them to shared environments.
+- Seed only safe development data.
+- Validate data at application boundaries.
+- Use appropriate database constraints.
+- Back up the database and test restoration before launch.
+- Restrict database credentials to the permissions required by the application.
+- Never treat a browser redirect as proof of payment.
+
+## 🛒 Business Rules and Operating Policies
+
+The following rules reflect the current business requirements and must be confirmed with the owner before public launch.
 
 | Area | Planned rule |
 |---|---|
-| Pricing | Display prices for products; online prices may differ from in-store prices. Bulk pricing may apply. |
-| Availability | Show **Available** or **Out of stock**; seasonal availability may change. |
-| Delivery | Tamil Nadu delivery is planned, with dispatch on Monday, Tuesday and Wednesday and an estimated 1–3 days. Confirm coverage and estimates before launch. |
-| Delivery charges | Calculated from an owner-approved order-value table. No free delivery is currently planned. |
-| Pickup | Store pickup is available as a planned option. |
-| Payment | Online payment through Razorpay; cash on delivery is not planned. |
+| Pricing | Display product prices clearly. Online prices may differ from in-store prices. Bulk pricing may apply. |
+| Availability | Show Available or Out of stock. Seasonal availability may change. |
+| Initial delivery areas | Dharmapuri Town, Vallampalli, Palacode and Harur |
+| Delivery expansion | Wider delivery across Tamil Nadu is planned, subject to confirmed coverage and operational feasibility. |
+| Dispatch days | Monday, Tuesday and Wednesday are currently planned dispatch days. |
+| Estimated delivery | An estimated 1–3 days is currently planned. Confirm the estimate and eligible pincodes before launch. |
+| Delivery charges | Calculate using an owner-approved order-value table. Free delivery is not currently planned. |
+| Pickup | Nursery/store pickup is a planned option. Confirm pickup instructions and timings. |
+| Payment | Online payment through Razorpay is planned. Cash on delivery is not planned. |
 | Checkout | Guest checkout; customer accounts are not required for the initial release. |
-| Order confirmation | Mark an order as paid only after server-side payment verification and a verified Razorpay webhook. Handle duplicate webhook events safely. |
-| Cancellation and refunds | The current business requirement says no cancellation after payment and no refund or replacement. Publish clear, legally reviewed terms before accepting orders. |
-| Receipts | Provide a simple order receipt; GST registration status and applicable invoicing obligations should be confirmed with a qualified adviser. |
-| Contact | WhatsApp is the primary channel; Instagram, email and store visits are additional planned channels. |
+| Payment confirmation | Mark an order as paid only after server-side payment verification and verified server-side confirmation. |
+| Duplicate payment events | Process repeated webhook events safely so duplicate events do not create duplicate orders or fulfilment actions. |
+| Cancellation and refunds | The current business requirement says no cancellation after payment and no refund or replacement. Review these terms for legal compliance before publication. |
+| Receipts and invoices | Provide a simple order receipt. Confirm GST registration status and applicable invoicing obligations with a qualified adviser. |
+| Customer contact | WhatsApp is the primary channel. Instagram, email and store visits are additional planned channels. |
+| Bulk orders | Support bulk enquiries through WhatsApp. Confirm minimum quantities and price tiers. |
 
-> **Important:** Plant health, damaged-in-transit, cancellation and refund terms should be reviewed for legal compliance and stated clearly before checkout. Do not publish an absolute no-refund/no-replacement promise without confirming applicable consumer-protection requirements.
+> **Policy and compliance note:** Plant health, damaged-in-transit, cancellation, refund and replacement terms should be reviewed for legal compliance and clearly displayed before checkout. Do not publish an absolute no-refund/no-replacement promise without confirming applicable consumer-protection requirements. This README is not legal or tax advice.
 
-## 🔄 Order lifecycle
+### Pricing and Inventory Safeguards
+
+- Recalculate product prices, discounts, delivery charges and order totals on the server.
+- Never trust prices or totals submitted by the browser.
+- Prevent purchases of out-of-stock products.
+- Validate stock again when an order is placed to reduce overselling.
+- Define when stock is reserved, released after failed payments and deducted after confirmed payment.
+- Track payment status separately from fulfilment status.
+- Record important order and payment transitions for troubleshooting and auditability.
+
+## 🔄 Order Lifecycle
+
+### Customer Journey
 
 ```text
-Browse / Enquire
-      ↓
-Check availability and price
-      ↓
-Enter customer and delivery details
-      ↓
-Complete online payment
-      ↓
-Verify payment on the server
-      ↓
-Select and quality-check plants
-      ↓
+Browse Plants / Make an Enquiry
+             ↓
+Check Product Availability and Price
+             ↓
+Add Products to Cart
+             ↓
+Enter Customer and Delivery/Pickup Details
+             ↓
+Calculate Total and Delivery Charges on Server
+             ↓
+Complete Online Payment
+             ↓
+Verify Payment on Server
+             ↓
+Select and Quality-Check Plants
+             ↓
 Pack → Dispatch → Track → Deliver
 ```
 
-Planned order statuses:
+### Planned Order Statuses
 
 ```text
 New → Paid → Preparing → Packed → Shipped → Delivered
 ```
 
-Payment status and fulfilment status should be tracked separately so an order cannot be treated as paid based only on a browser redirect.
+The final implementation should also define appropriate handling for failed, pending, cancelled or refunded payment states where applicable.
 
-## 🗺️ Development roadmap
+**Important:** Payment status and fulfilment status must be tracked separately. An order must not be marked as paid solely because the customer returns to the website after attempting payment.
 
-Build and test the purchase journey before adding advanced features.
+## 🎨 Design Principles
 
-| Phase | Focus | Main outcome |
+- **Premium and natural:** Use authentic plant photography, earthy greens and warm neutral colours.
+- **Mobile-first:** Make the shopping experience and admin dashboard comfortable to use on phones.
+- **Bilingual by design:** Support English and Tamil across navigation, product content, forms and policies.
+- **Accessible:** Use readable typography, sufficient contrast, keyboard support, descriptive labels and clear form errors.
+- **Trustworthy:** Make prices, stock availability, delivery estimates, payment status and policies transparent.
+- **Performance-conscious:** Optimise images, avoid unnecessary client-side JavaScript and keep pages fast on mobile networks.
+- **Consistent:** Use reusable components and consistent spacing, typography, colours and interaction patterns.
+- **Clear feedback:** Provide useful loading, empty, success and error states for catalogue, checkout and admin actions.
+
+## 🗺️ Development Roadmap
+
+Build and test the core purchase journey before adding advanced features.
+
+| Phase | Focus | Expected outcome |
 |---|---|---|
-| 1. Foundation | Next.js setup, code quality, design system, database and deployment | A stable project ready for development |
-| 2. Catalogue | Product data, photos, categories, search, filters and product pages | Customers can find and understand products |
-| 3. Admin | Secure login, product and category management, price and availability updates | Owner can manage the catalogue |
-| 4. Checkout | Cart, delivery rules, guest checkout and Razorpay | Secure online purchases |
+| 1. Foundation | Next.js setup, code quality, design system, database and deployment foundation | Stable project ready for development |
+| 2. Catalogue | Product data, photographs, categories, search, filters and product pages | Customers can find and understand products |
+| 3. Admin | Secure login, product/category management, price and availability updates | Owner can manage the catalogue |
+| 4. Checkout | Cart, delivery rules, guest checkout and Razorpay integration | Secure online purchases |
 | 5. Operations | Order management, tracking, receipts and owner notifications | Orders can be handled end to end |
 | 6. Plant experience | Plant Finder, care guides, English/Tamil interface and wishlist | Better discovery and customer support |
-| 7. Launch readiness | SEO, analytics, security, backups and testing | Site is ready for public launch |
+| 7. Launch readiness | SEO, analytics, security, backups and testing | Website ready for public launch |
 | 8. Growth | Reviews, coupons, loyalty features and automated updates | Encourage repeat purchases |
-| 9. Advanced | AI plant assistant, photo identification and PWA | Expand the digital experience |
+| 9. Advanced | AI plant assistant, photo identification and PWA | Expanded digital experience |
 
-For the detailed feature-by-feature checklist, use the project's development plan and keep the progress tracker updated as tasks are completed.
+Maintain a separate feature-by-feature development plan or progress tracker. Mark work complete only after implementation and relevant testing.
 
-## 🌿 Design principles
+## 🧪 Testing and Launch Checklist
 
-- **Premium and natural:** real plant photography, earthy greens and warm neutral colours.
-- **Mobile-first:** the shopping journey and owner dashboard should work comfortably on phones.
-- **Bilingual by design:** support English and Tamil across navigation, product content and policies.
-- **Accessible:** readable type, sufficient contrast, keyboard support and clear form errors.
-- **Trustworthy:** transparent prices, availability, delivery estimates, payment status and policies.
-- **Performance-conscious:** optimise images and keep pages fast on mobile networks.
+Use the following checklist before public launch. Add automated tests as the application develops.
 
-## 🧪 Testing and launch checklist
+### Catalogue and Checkout
 
-Before launching, verify at least the following:
-
-- [ ] Product prices, availability and delivery charges are calculated on the server.
+- [ ] Product names and descriptions are correct in English and Tamil.
+- [ ] Prices, discounts, stock and delivery charges are validated on the server.
 - [ ] Out-of-stock products cannot be purchased.
-- [ ] Razorpay payment signatures and webhook signatures are verified.
-- [ ] Duplicate webhooks do not create duplicate orders.
-- [ ] Failed, pending, retried and successful payments show the correct state.
-- [ ] Stock is reserved and updated safely during checkout.
-- [ ] Admin routes and actions require valid authentication and authorisation.
-- [ ] Inputs are validated and sensitive values remain server-side.
-- [ ] English and Tamil pages are checked on mobile and desktop.
-- [ ] Privacy, delivery, cancellation and refund policies are published.
-- [ ] Database backups are configured and a restore has been tested.
-- [ ] A complete test purchase is performed before switching to live payments.
+- [ ] Stock is checked safely during checkout to reduce overselling.
+- [ ] Guest checkout works without requiring a customer account.
+- [ ] Delivery and pickup options follow confirmed business rules.
+- [ ] Order totals are correct for different cart sizes and delivery ranges.
+- [ ] Form validation and error messages work correctly.
 
-## 🌐 SEO and analytics
+### Payments and Orders
+
+- [ ] Razorpay payment signatures are verified server-side.
+- [ ] Webhook signatures are verified.
+- [ ] Duplicate webhook events do not create duplicate orders or fulfilment actions.
+- [ ] Failed, pending, retried and successful payments show the correct state.
+- [ ] Orders are not marked paid based only on a browser redirect.
+- [ ] Payment and fulfilment statuses are tracked separately.
+- [ ] A complete test purchase is performed before enabling live payments.
+
+### Security and Operations
+
+- [ ] Admin routes and actions require valid authentication and authorisation.
+- [ ] Inputs are validated on the server.
+- [ ] Sensitive values remain server-side and are not committed to Git.
+- [ ] Errors are logged without exposing secrets or private customer information.
+- [ ] Database backups are configured.
+- [ ] Database restoration has been tested.
+- [ ] Production environment variables are configured securely.
+
+### Experience and Launch Readiness
+
+- [ ] English and Tamil pages are tested on mobile and desktop.
+- [ ] Images have suitable dimensions and descriptive alt text.
+- [ ] Loading, empty, success and error states are understandable.
+- [ ] Privacy, delivery, cancellation, refund and terms policies are published and reviewed.
+- [ ] Delivery coverage, charges, dispatch days and estimates are confirmed.
+- [ ] Contact details and social links are correct.
+- [ ] SEO metadata, sitemap and robots rules are checked.
+- [ ] The production build completes successfully.
+
+## 🌐 SEO, Analytics and Monitoring
+
+### Search Engine Optimisation
 
 Planned launch work includes:
 
-- Unique page titles and descriptions for products, categories and care guides.
-- Clean URLs, product structured data, `sitemap.xml` and `robots.txt`.
-- Descriptive image alt text in English and Tamil where appropriate.
-- Google Business Profile and Google Search Console setup.
-- Analytics for product views, add-to-cart actions, checkout, purchases and WhatsApp clicks.
-- A weekly report for sales, popular products and visitor sources.
+- Unique page titles and descriptions for products, categories and plant-care guides.
+- Clean and readable product and category URLs.
+- Appropriate product structured data where applicable.
+- A validated `sitemap.xml`.
+- A suitable `robots.txt`.
+- Descriptive image alt text, including Tamil where appropriate.
+- Google Business Profile setup.
+- Google Search Console setup.
+- Correct canonical URLs for the production domain.
 
-## 🔀 Development workflow
+### Analytics
 
-### Branches
+Use Google Analytics 4 and/or Vercel Analytics, depending on the final implementation.
 
-| Branch | Purpose |
-|---|---|
-| `main` | Production-ready code |
-| `dev` | Integration and testing |
-| `feature/<name>` | A focused feature or task |
-| `release/<version>` | Optional release preparation |
+Useful events may include:
 
-### Start a feature
+- Product views
+- Category views
+- Searches
+- Add-to-cart actions
+- Checkout starts
+- Successful purchases
+- WhatsApp clicks
+- Plant Finder completions
 
-```bash
-git checkout dev
-git pull origin dev
-git checkout -b feature/short-feature-name
-```
+Track only the data needed for useful measurement. Configure privacy disclosures and consent practices where required.
 
-After implementing and testing the feature:
+### Monitoring and Reporting
 
-```bash
-git add .
-git commit -m "feat: add plant finder quiz"
-git push -u origin feature/short-feature-name
-```
+- Use Sentry or an equivalent service for application errors.
+- Review failed payment and checkout events.
+- Prepare a weekly summary of sales, popular products and visitor sources.
+- Avoid sending payment credentials or unnecessary personal information to analytics and error-monitoring services.
 
-Open a pull request into `dev`, review the changes, and merge only after relevant checks pass. Promote tested changes to `main` for production releases.
+## 🔀 Git Development Workflow
 
-### Commit message examples
+> **Golden rule: Always start from the latest `dev` branch. Create a new branch for every feature, bug fix or independent task. Push changes to that task branch and submit a Pull Request targeting `dev` only. Never work on, push to or merge into `main`. Never commit directly to `dev` either.**
 
-```text
-feat: add plant finder quiz
-fix: correct delivery charge calculation
-style: improve product card spacing
-refactor: move price logic to server
-docs: update README roadmap
-chore: upgrade dependencies
-```
+### Branch Strategy
 
-### Team conventions
+| Branch | Purpose | Rule |
+|---|---|---|
+| `main` | Reserved and out of bounds for this workflow | Never work on, push to or merge into it |
+| `dev` | Shared development and integration branch | Pull from it; never commit directly to it |
+| `feature/<name>` | New feature | Create a fresh branch for each feature |
+| `fix/<name>` | Bug fix | Create a fresh branch for each independent fix |
+| `docs/<name>` | Documentation change | Create a fresh branch for each documentation task |
+| `release/<version>` | Optional release preparation | Use only if the team explicitly agrees; never use it to modify `main` |
 
-- Work on one feature branch at a time.
-- Never commit `.env`, credentials or private customer data.
-- Validate all inputs and calculate prices on the server.
-- Test responsive layouts and key purchase flows before merging.
-- Update the roadmap and progress tracker when work is completed.
-
-## ❓ Decisions to confirm before launch
-
-- Delivery partners and coverage by pincode.
-- Exact delivery charges for each order-value range.
-- Whether coupons are needed at launch or later.
-- Whether admin access is owner-only or includes staff roles.
-- Whether customers should receive WhatsApp shipment updates.
-- Razorpay onboarding requirements and business bank details.
-- Minimum quantity for bulk pricing.
-- Final product list, bilingual descriptions, care information and photographs.
-- Store address, hours, contact details and social links.
-- Final wording of cancellation, refund, replacement and plant-damage policies.
-
-## 📬 Contact
-
-**Kaviyadevan Nursery Garden (KDN Nursery)**  
-Dharmapuri, Tamil Nadu, India
-
-- Website: `kdnnursery.in` (planned)
-- WhatsApp: To be added
-- Instagram: To be added
-- Email: To be added
-
----
-
-<sub>Private project · © Kaviyadevan Nursery Garden · Dharmapuri, Tamil Nadu</sub>
-
-## 🔀 Development Workflow (Git)
-
-**Golden rule:** Always pull the latest code from `dev` before starting a new feature. Create a separate branch for every feature, bug fix, or task. Push your changes to GitHub and merge them into `dev` through a Pull Request (PR).
-
-**Never work on `main`. Never merge feature branches into `main`.**
-
-### 1. Branching strategy
-
-| Branch | Purpose |
-|---|---|
-| `main` | Do not use or modify |
-| `dev` | Main development and integration branch |
-| `feature/<feature-name>` | New features |
-| `fix/<bug-name>` | Bug fixes |
-| `docs/<change-name>` | Documentation changes |
-
-### 2. Start every new feature
+### 1. Start Every Task from the Latest `dev`
 
 ```bash
 # Switch to dev
 git switch dev
 
-# Get the latest code from GitHub
+# Get the latest integrated code
 git pull origin dev
 
-# Create a new branch for the feature
-git switch -c feature/feature-name
+# Create a new task branch
+git switch -c feature/short-feature-name
 ```
 
-Replace `feature/feature-name` with a meaningful name, such as `feature/product-search` or `feature/checkout`.
+Choose a meaningful branch name, for example:
 
-### 3. Make changes and commit
+```text
+feature/product-search
+feature/checkout
+fix/delivery-charge-calculation
+docs/readme-update
+```
 
-After implementing and testing your changes:
+Use `feature/`, `fix/` or `docs/` as appropriate.
+
+If `dev` is not available locally after cloning, fetch remote branches and set up the tracking branch once:
 
 ```bash
-# Check your current branch
+git fetch origin
+git switch --track origin/dev
+```
+
+Then create a fresh task branch from the updated `dev`.
+
+### 2. Verify Your Branch and Review Changes
+
+Before editing or committing, confirm your current branch:
+
+```bash
 git branch --show-current
-
-# Review changes
 git status
+```
 
-# Stage changes
+After making changes, inspect the files and differences:
+
+```bash
+git status
+git diff
+```
+
+Stage and commit the files relevant to your task:
+
+```bash
 git add .
-
-# Commit changes
 git commit -m "feat: add product search"
 ```
 
-Use meaningful commit messages. Never commit `.env` files, API keys, passwords, or database credentials.
+For more control, stage individual files instead of using `git add .`.
 
-### 4. Push your feature branch
+### 3. Push Your Task Branch
 
 For the first push:
 
 ```bash
-git push -u origin feature/feature-name
+git push -u origin feature/short-feature-name
 ```
 
 For subsequent pushes:
@@ -469,115 +747,169 @@ For subsequent pushes:
 git push
 ```
 
-### 5. Merge into dev — never main
+Push only your task branch. Never push commits directly to `dev` or `main`.
 
-After pushing your feature branch:
+### 4. Create a Pull Request into `dev`
 
-1. Open GitHub.
-2. Create a Pull Request from `feature/feature-name` into `dev`.
-3. Review the changes and resolve any conflicts.
-4. Run the required checks and tests.
-5. Merge the Pull Request into `dev`.
+On GitHub:
 
-**The target branch must always be `dev`, never `main`.**
+1. Open the repository.
+2. Create a Pull Request from your task branch.
+3. Set the **base branch to `dev`**.
+4. Select your feature, fix or documentation branch as the compare branch.
+5. Describe the change and include testing details.
+6. Review the changes and resolve conflicts.
+7. Wait for required checks and reviews.
+8. Merge the Pull Request into `dev` only.
 
-### 6. Get the latest dev changes while working
+**Always verify the base branch before creating or merging a PR. It must be `dev`, never `main`.**
 
-If other developers have merged changes into `dev` while you are working on your feature:
+### 5. Bring Latest `dev` Changes into Your Task Branch
+
+If other work is merged into `dev` while your task is in progress:
 
 ```bash
-# Download the latest remote updates
+# Fetch the latest remote references
 git fetch origin
 
-# Ensure you are on your feature branch
-git switch feature/feature-name
+# Switch to your existing task branch
+git switch feature/short-feature-name
 
-# Merge the latest dev changes into your feature branch
+# Merge the latest dev changes into your task branch
 git merge origin/dev
 
-# Push the updated feature branch
+# Resolve conflicts, test, then push
 git push
 ```
 
-Resolve any conflicts and test your code before pushing.
+Resolve conflicts carefully and run relevant tests before pushing. This updates your task branch with the latest `dev`; it does not merge your task into `dev`.
 
-### 7. After your feature is merged into dev
+### 6. After the Pull Request Is Merged into `dev`
 
-```bash
-# Switch to dev
-git switch dev
-
-# Pull the latest integrated code
-git pull origin dev
-
-# Delete the completed local feature branch
-git branch -d feature/feature-name
-```
-
-If the remote feature branch has not already been deleted:
-
-```bash
-git push origin --delete feature/feature-name
-```
-
-### 8. Start the next feature
-
-Always repeat this process for every new feature.
+Update your local `dev` branch:
 
 ```bash
 git switch dev
 git pull origin dev
-git switch -c feature/new-feature-name
+```
+
+Delete the completed local task branch only after confirming it has been merged and is no longer needed:
+
+```bash
+git branch -d feature/short-feature-name
+```
+
+If the remote task branch has not already been deleted and is no longer needed:
+
+```bash
+git push origin --delete feature/short-feature-name
+```
+
+Replace the example branch name with your actual branch. Never run these deletion commands against `dev` or `main`.
+
+### 7. Start the Next Task
+
+Repeat the process for every new feature, bug fix or independent task:
+
+```bash
+git switch dev
+git pull origin dev
+git switch -c feature/next-feature-name
 ```
 
 Never reuse an old feature branch for an unrelated task.
 
-### 9. Commit message conventions
+### Git Team Rules
+
+- Always start from the latest `dev`.
+- Create a new branch for every feature, bug fix or independent task.
+- Never work directly on `dev` or `main`.
+- Push changes to your task branch, not directly to `dev`.
+- Create Pull Requests targeting `dev` only.
+- Never push, merge or make changes to `main`.
+- Review and test changes before merging into `dev`.
+- Keep commits focused and meaningful.
+- Never commit `.env` files, API keys, passwords, database credentials or private customer data.
+- Update the README and development tracker when relevant implementation details change.
+
+## 📝 Commit Message Convention
+
+Use short, descriptive commit messages with a consistent prefix.
 
 | Prefix | Purpose | Example |
 |---|---|---|
-| `feat:` | New feature | `feat: add product search` |
-| `fix:` | Bug fix | `fix: correct delivery charges` |
-| `style:` | UI improvements | `style: improve product cards` |
-| `refactor:` | Code restructuring | `refactor: simplify pricing logic` |
-| `docs:` | Documentation | `docs: update README` |
-| `test:` | Testing | `test: add checkout tests` |
-| `chore:` | Maintenance | `chore: update dependencies` |
+| `feat:` | New feature | `feat: add plant finder quiz` |
+| `fix:` | Bug fix | `fix: correct delivery charge calculation` |
+| `style:` | UI or styling improvement | `style: improve product card spacing` |
+| `refactor:` | Code restructuring without intended behaviour change | `refactor: move price logic to server` |
+| `docs:` | Documentation | `docs: update README roadmap` |
+| `test:` | Tests | `test: add checkout tests` |
+| `chore:` | Maintenance | `chore: upgrade dependencies` |
 
-### 10. Quick reference
+Examples:
 
-```bash
-# Start a new feature
-git switch dev
-git pull origin dev
-git switch -c feature/feature-name
-
-# Commit your changes
-git add .
-git commit -m "feat: describe your change"
-
-# Push your feature branch
-git push -u origin feature/feature-name
-
-# Get the latest dev changes into your feature
-git fetch origin
-git merge origin/dev
-git push
-
-# After the PR is merged into dev
-git switch dev
-git pull origin dev
-git branch -d feature/feature-name
+```text
+feat: add plant finder quiz
+fix: correct delivery charge calculation
+style: improve product card spacing
+refactor: move price logic to server
+docs: update README roadmap
+test: add checkout tests
+chore: upgrade dependencies
 ```
 
-### Team rules
+## ❓ Decisions to Confirm Before Launch
 
-- Always start from the latest `dev` branch.
-- Create a new branch for every feature or independent task.
-- Never work directly on `dev` or `main`.
-- Push changes to your feature branch, not directly to `dev`.
-- Create Pull Requests targeting `dev` only.
-- Never push, merge, or make changes to `main`.
-- Test changes before merging into `dev`.
-- Keep commits small and meaningful.
-- Never commit secrets, credentials, or private customer data.
+Confirm and document the following with the owner before accepting public orders.
+
+### Delivery and Fulfilment
+
+- Delivery partners and serviceable pincodes
+- Final delivery coverage in Dharmapuri Town, Vallampalli, Palacode and Harur
+- Whether and when to expand delivery across Tamil Nadu
+- Exact delivery charges for each order-value range
+- Confirmed dispatch days and the meaning of the estimated 1–3 day delivery window
+- Store pickup address, hours and instructions
+- Courier details and order-tracking process
+
+### Products and Pricing
+
+- Final catalogue and initial 30–50 product selection
+- English and Tamil product names and descriptions
+- Final photographs and plant-care information
+- Seasonal availability and stock-update process
+- Online prices compared with in-store prices
+- Bulk-price tiers and minimum quantities
+- Whether coupons are needed at launch or can be introduced later
+
+### Administration and Customer Communication
+
+- Whether admin access is owner-only or includes staff roles
+- Whether WhatsApp shipment updates are required at launch
+- Final WhatsApp number, Instagram profile and email address
+- Owner notification process for new orders and payment issues
+- Final website domain and production URL
+
+### Payments, Policies and Compliance
+
+- Razorpay onboarding requirements and business bank details
+- Payment failure, retry and reconciliation process
+- Cancellation, refund, replacement and damaged-plant policies
+- Privacy policy, terms and delivery policy
+- GST registration status and applicable invoicing obligations
+- Legal review required before publishing customer-facing policies
+
+## 📬 Contact
+
+**Kaviyadevan Nursery Garden (KDN Nursery)**
+
+Dharmapuri, Tamil Nadu, India
+
+- **Website:** `kdnnursery.in` (planned)
+- **WhatsApp:** To be added
+- **Instagram:** To be added
+- **Email:** To be added
+
+---
+
+<sub>Private project · © Kaviyadevan Nursery Garden · Dharmapuri, Tamil Nadu, India</sub>
