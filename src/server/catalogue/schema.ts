@@ -20,7 +20,7 @@ export const productImageSchema = z.object({
   id: z.string().min(1),
   alt: localized,
   sortOrder: z.number().int().nonnegative(),
-  storageKey: z.string().startsWith("placeholder:"),
+  storageKey: z.string().regex(/^(?:placeholder:coming-soon|local:\/plants\/[a-z0-9-]+\.webp)$/),
   art: z.enum(["herb", "flower", "fruit"]),
 });
 

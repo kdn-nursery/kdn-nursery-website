@@ -14,12 +14,71 @@ const review = {
   dataOrigin: "development" as const,
 };
 
-function image(slug: string, art: PlaceholderArt, alt: LocalizedText) {
+const photoAlt: Record<string, LocalizedText> = {
+  "rama-tulasi": {
+    en: "Green-leaved Rama tulasi growing in a pot",
+    ta: "தொட்டியில் வளரும் பச்சை இலை ராம துளசி",
+  },
+  "krishna-tulasi": {
+    en: "Krishna tulasi plants with purple leaves",
+    ta: "ஊதா இலைகளுடன் கூடிய கிருஷ்ண துளசிச் செடிகள்",
+  },
+  mint: {
+    en: "Spearmint plant shown for this mint sample",
+    ta: "இந்த புதினா மாதிரிக்குக் காட்டப்படும் புதினாச் செடி",
+  },
+  rosemary: {
+    en: "Rosemary shrub with narrow leaves and small blue flowers",
+    ta: "குறுகிய இலைகளும் சிறிய நீலப் பூக்களும் உள்ள ரோஸ்மேரிச் செடி",
+  },
+  lemongrass: {
+    en: "A clump of lemongrass",
+    ta: "எலுமிச்சைப் புல் கற்றை",
+  },
+  henna: {
+    en: "A young henna plant in a pot",
+    ta: "தொட்டியில் உள்ள இளம் மருதாணிச் செடி",
+  },
+  hibiscus: {
+    en: "Red hibiscus flower and leaves",
+    ta: "சிவப்பு செம்பருத்திப் பூவும் இலைகளும்",
+  },
+  senbagam: {
+    en: "Orange-yellow senbagam flowers and a leaf",
+    ta: "செண்பகத்தின் ஆரஞ்சு-மஞ்சள் பூக்களும் இலையும்",
+  },
+  guava: {
+    en: "Guava leaves and young fruit on the plant",
+    ta: "செடியில் இருக்கும் கொய்யா இலைகளும் இளம் கனியும்",
+  },
+  pomegranate: {
+    en: "Pomegranate flower and leaves on the branch",
+    ta: "கிளையில் மாதுளைப் பூவும் இலைகளும்",
+  },
+  mango: {
+    en: "A very young mango plant. The variety is not named",
+    ta: "மிக இளம் மாச் செடி. வகை பெயரிடப்படவில்லை",
+  },
+  sapota: {
+    en: "A mature sapota tree. The nursery listing is for a young plant",
+    ta: "வளர்ந்த சப்போட்டா மரம். நாற்றங்கால் பட்டியல் இளம் செடிக்கு",
+  },
+  amla: {
+    en: "A mature amla tree",
+    ta: "வளர்ந்த நெல்லி மரம்",
+  },
+};
+
+function image(slug: string, art: PlaceholderArt, name: LocalizedText) {
+  const alt = photoAlt[slug];
   return {
-    id: `${slug}-placeholder`,
-    alt,
+    id: alt ? `${slug}-photo` : `${slug}-placeholder`,
+    alt: alt ?? {
+      en: `Photo coming soon for ${name.en}`,
+      ta: `${name.ta} — புகைப்படம் விரைவில்`,
+    },
     sortOrder: 0,
-    storageKey: `placeholder:${art}`,
+    storageKey: alt ? `local:/plants/${slug}.webp` : "placeholder:coming-soon",
     art,
   };
 }

@@ -32,6 +32,18 @@ describe("catalogue search", () => {
     }
   });
 
+  it("uses a licensed photo only when the plant identity is verified", () => {
+    const awaiting = ["hybrid-hibiscus", "december-flower", "fig", "water-apple"];
+    for (const product of products) {
+      const key = product.images[0]?.storageKey;
+      if (awaiting.includes(product.slug)) {
+        expect(key).toBe("placeholder:coming-soon");
+      } else {
+        expect(key).toBe(`local:/plants/${product.slug}.webp`);
+      }
+    }
+  });
+
   it("marks sample copy and prices as development data", () => {
     expect(products.every((product) => product.dataOrigin === "development")).toBe(true);
     expect(products.every((product) => product.translationStatus === "unverified")).toBe(true);

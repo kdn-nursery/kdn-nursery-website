@@ -7,6 +7,7 @@ import type {
   PlaceholderArt,
   Product,
 } from "@/server/catalogue/types";
+import { publishedCatalogueFilter } from "@/server/admin/rules";
 import { getPrismaClient } from "@/server/db";
 
 function artFromStorageKey(storageKey: string): PlaceholderArt {
@@ -53,7 +54,7 @@ function mapProduct(row: ProductRow): Product {
           altEn: row.nameEn,
           altTa: row.nameTa,
           sortOrder: 0,
-          storageKey: "placeholder:herb",
+          storageKey: "placeholder:coming-soon",
         },
       ];
 
@@ -88,6 +89,7 @@ function mapProduct(row: ProductRow): Product {
 
 async function loadProducts(): Promise<Product[]> {
   const rows = await getPrismaClient().product.findMany({
+    where: publishedCatalogueFilter(),
     include: {
       category: true,
       images: { orderBy: { sortOrder: "asc" } },
@@ -102,6 +104,7 @@ export function createPrismaCatalogueRepository(): CatalogueRepository {
     mode: "database",
     async listCategories() {
       const rows = await getPrismaClient().category.findMany({
+        where: { isPublished: true, archivedAt: null },
         orderBy: { sortOrder: "asc" },
       });
       return rows.map(
@@ -130,6 +133,7 @@ export function createPrismaCatalogueRepository(): CatalogueRepository {
     },
     async listCareGuides() {
       const rows = await getPrismaClient().careGuide.findMany({
+        where: { isPublished: true },
         orderBy: { sortOrder: "asc" },
       });
       return rows.map(

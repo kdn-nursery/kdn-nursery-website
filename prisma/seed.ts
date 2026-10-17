@@ -54,9 +54,7 @@ async function main() {
       });
 
       const saved = await prisma.product.upsert({
-        where: {
-          categoryId_slug: { categoryId: category.id, slug: product.slug },
-        },
+        where: { slug: product.slug },
         create: {
           slug: product.slug,
           categoryId: category.id,
@@ -75,6 +73,7 @@ async function main() {
           featuredOrder: product.featuredOrder,
           translationStatus: "UNVERIFIED",
           dataOrigin: "DEVELOPMENT",
+          status: "PUBLISHED",
         },
         update: {
           nameEn: product.name.en,

@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
+import { PhotoCredit, PlantMedia } from "@/components/brand/plant-media";
 import { Badge } from "@/components/ui/badge";
-import { PlantArt } from "@/components/brand/plant-art";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { formatInr } from "@/lib/money";
@@ -21,9 +21,19 @@ export async function ProductCard({
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-border bg-card">
       <Link href={`/shop/${product.categorySlug}/${product.slug}`} className="block">
-        <PlantArt art={image?.art ?? "herb"} label={textFor(image?.alt ?? product.name, locale)} className="aspect-[4/5]" />
+        <PlantMedia
+          image={image}
+          locale={locale}
+          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+          showCredit={false}
+          fit="cover"
+        />
       </Link>
       <div className="flex flex-1 flex-col gap-3 p-4">
+        <PhotoCredit
+          storageKey={image?.storageKey}
+          speciesNote={product.categorySlug === "fruit-plants"}
+        />
         <div className="flex flex-wrap gap-2">
           <Badge tone={product.availability === "available" ? "available" : "stock"}>
             {product.availability === "available" ? t("available") : t("outOfStock")}

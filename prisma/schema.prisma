@@ -1,7 +1,6 @@
-// KDN Nursery catalogue schema (Milestone 1).
+// KDN Nursery catalogue and admin schema.
 // Money is stored as integer paise. 100 paise = ₹1.
-// Planned order, payment, reservation, Auth.js and audit models are
-// documented in docs/IMPLEMENTATION_PLAN.md and are not created yet.
+// Payment capture stays outside the admin panel. Admins cannot mark an order paid.
 
 generator client {
   provider = "prisma-client"
@@ -17,6 +16,12 @@ enum Availability {
   OUT_OF_STOCK
 }
 
+enum ProductStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
 enum ContentReviewStatus {
   UNVERIFIED
   VERIFIED
@@ -27,6 +32,30 @@ enum CatalogueDataOrigin {
   OWNER_CONFIRMED
 }
 
+enum AdminRole {
+  ADMIN
+}
+
+enum PaymentStatus {
+  UNPAID
+  PENDING
+  AUTHORIZED
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum FulfilmentStatus {
+  PENDING
+  CONFIRMED
+  PACKED
+  DISPATCHED
+  READY_FOR_PICKUP
+  DELIVERED
+  PICKED_UP
+  CANCELLED
+}
+
 model Category {
   id             String    @id @default(cuid())
   slug           String    @unique
@@ -34,7 +63,13 @@ model Category {
   nameTa         String
   descriptionEn  String
   descriptionTa  String
+  imageStorageKey String?
+  imageAltEn     String    @default("")
+  imageAltTa     String    @default("")
   sortOrder      Int       @default(0)
+  isPublished    Boolean   @default(true)
+  archivedAt     DateTime?
+  version        Int       @default(0)
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   products       Product[]
@@ -42,70 +77,262 @@ model Category {
 
 model Product {
   id                 String              @id @default(cuid())
-  slug               String
+  slug               String              @unique
   categoryId         String
   category           Category            @relation(fields: [categoryId], references: [id], onDelete: Restrict)
   nameEn             String
   nameTa             String
+  botanicalName      String              @default("")
+  varietyName        String              @default("")
   summaryEn          String
   summaryTa          String
   descriptionEn      String
   descriptionTa      String
   careEn             String
   careTa             String
+  sunlightEn         String              @default("")
+  sunlightTa         String              @default("")
+  wateringEn         String              @default("")
+  wateringTa         String              @default("")
+  handlingEn         String              @default("")
+  handlingTa         String              @default("")
+  potSize            String              @default("")
+  seoTitleEn         String              @default("")
+  seoTitleTa         String              @default("")
+  seoDescriptionEn   String              @default("")
+  seoDescriptionTa   String              @default("")
   pricePaise         Int
+  compareAtPaise     Int?
   stockQuantity      Int
   availability       Availability
+  status             ProductStatus       @default(DRAFT)
   isFeatured         Boolean             @default(false)
   featuredOrder      Int?
+  displayOrder       Int                 @default(0)
   translationStatus  ContentReviewStatus @default(UNVERIFIED)
   dataOrigin         CatalogueDataOrigin @default(DEVELOPMENT)
+  version            Int                 @default(0)
   createdAt          DateTime            @default(now())
   updatedAt          DateTime            @updatedAt
   images             ProductImage[]
   bulkPriceTiers     BulkPriceTier[]
+  orderItems         OrderItem[]
 
-  @@unique([categoryId, slug])
+  @@index([status, displayOrder])
   @@index([isFeatured, featuredOrder])
   @@index([availability])
 }
 
+model MediaAsset {
+  id          String         @id @default(cuid())
+  publicId    String         @unique
+  secureUrl   String
+  format      String
+  bytes       Int
+  width       Int
+  height      Int
+  altEn       String         @default("")
+  altTa       String         @default("")
+  createdById String?
+  createdAt   DateTime       @default(now())
+  images      ProductImage[]
+}
+
 model ProductImage {
-  id           String  @id @default(cuid())
-  productId    String
-  product      Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-  altEn        String
-  altTa        String
-  sortOrder    Int     @default(0)
-  // Cloudinary public id once owner photographs are uploaded.
-  // Milestone 1 stores a placeholder token such as "placeholder:herb".
-  storageKey   String
-  createdAt    DateTime @default(now())
+  id         String      @id @default(cuid())
+  productId  String
+  product    Product     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  mediaId    String?
+  media      MediaAsset? @relation(fields: [mediaId], references: [id], onDelete: Restrict)
+  altEn      String
+  altTa      String
+  sortOrder  Int         @default(0)
+  isCover    Boolean     @default(false)
+  storageKey String
+  createdAt  DateTime    @default(now())
 
   @@index([productId, sortOrder])
+  @@index([mediaId])
 }
 
 model BulkPriceTier {
-  id           String  @id @default(cuid())
-  productId    String
-  product      Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-  minQuantity  Int
-  pricePaise   Int
+  id          String  @id @default(cuid())
+  productId   String
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  minQuantity Int
+  pricePaise  Int
 
   @@unique([productId, minQuantity])
 }
 
 model CareGuide {
-  id                 String              @id @default(cuid())
-  slug               String              @unique
-  titleEn            String
-  titleTa            String
-  summaryEn          String
-  summaryTa          String
-  bodyEn             String
-  bodyTa             String
-  sortOrder          Int                 @default(0)
-  translationStatus  ContentReviewStatus @default(UNVERIFIED)
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
+  id                String              @id @default(cuid())
+  slug              String              @unique
+  titleEn           String
+  titleTa           String
+  summaryEn         String
+  summaryTa         String
+  bodyEn            String
+  bodyTa            String
+  sortOrder         Int                 @default(0)
+  isPublished       Boolean             @default(true)
+  translationStatus ContentReviewStatus @default(UNVERIFIED)
+  version           Int                 @default(0)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+}
+
+model AdminUser {
+  id                String    @id @default(cuid())
+  username          String    @unique
+  passwordHash      String
+  role              AdminRole @default(ADMIN)
+  passwordChangedAt DateTime  @default(now())
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  auditEvents       AuditEvent[]
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  key       String
+  createdAt DateTime @default(now())
+
+  @@index([key, createdAt])
+}
+
+model AuditEvent {
+  id         String    @id @default(cuid())
+  adminId    String?
+  admin      AdminUser? @relation(fields: [adminId], references: [id], onDelete: SetNull)
+  action     String
+  entityType String
+  entityId   String
+  summary    String
+  createdAt  DateTime  @default(now())
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model ContentDocument {
+  key         String   @id
+  body        Json
+  version     Int      @default(0)
+  updatedAt   DateTime @updatedAt
+  updatedById String?
+}
+
+model Banner {
+  id         String   @id @default(cuid())
+  storageKey String
+  altEn      String
+  altTa      String
+  href       String
+  sortOrder  Int      @default(0)
+  isPublished Boolean @default(true)
+  version    Int      @default(0)
+  updatedAt  DateTime @updatedAt
+}
+
+model Faq {
+  id          String   @id @default(cuid())
+  questionEn  String
+  questionTa  String
+  answerEn    String
+  answerTa    String
+  sortOrder   Int      @default(0)
+  isPublished Boolean  @default(true)
+  version     Int      @default(0)
+  updatedAt   DateTime @updatedAt
+}
+
+model BusinessProfile {
+  id                 String   @id @default("default")
+  businessName       String   @default("Kaviyadevan Nursery Garden")
+  whatsappNumber     String   @default("")
+  email              String   @default("")
+  instagramUrl       String   @default("")
+  addressEn          String   @default("")
+  addressTa          String   @default("")
+  pickupEn           String   @default("")
+  pickupTa           String   @default("")
+  openingHoursEn     String   @default("")
+  openingHoursTa     String   @default("")
+  dispatchDays       String   @default("")
+  deliveryEstimateEn String   @default("")
+  deliveryEstimateTa String   @default("")
+  pickupAvailable    Boolean  @default(false)
+  version            Int      @default(0)
+  updatedAt          DateTime @updatedAt
+}
+
+model DeliveryPincode {
+  pincode String @id
+  label   String @default("")
+}
+
+model DeliveryChargeTier {
+  id           String @id @default(cuid())
+  minOrderPaise Int
+  maxOrderPaise Int?
+  chargePaise  Int
+  sortOrder    Int    @default(0)
+
+  @@unique([minOrderPaise])
+}
+
+model Order {
+  id                String            @id @default(cuid())
+  orderNumber       String            @unique
+  paymentStatus     PaymentStatus     @default(UNPAID)
+  fulfilmentStatus  FulfilmentStatus  @default(PENDING)
+  currency          String            @default("INR")
+  subtotalPaise     Int
+  deliveryPaise     Int
+  totalPaise        Int
+  customerName      String
+  customerPhone     String
+  deliveryLine      String            @default("")
+  pincode           String            @default("")
+  courierName       String            @default("")
+  trackingNumber    String            @default("")
+  trackingUrl       String            @default("")
+  version           Int               @default(0)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  items             OrderItem[]
+  events            OrderEvent[]
+  notes             OrderNote[]
+}
+
+model OrderItem {
+  id            String  @id @default(cuid())
+  orderId       String
+  order         Order   @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  productId     String?
+  product       Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  nameEn        String
+  nameTa        String
+  unitPricePaise Int
+  quantity      Int
+  lineTotalPaise Int
+}
+
+model OrderEvent {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  kind      String
+  summary   String
+  createdAt DateTime @default(now())
+}
+
+model OrderNote {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  body      String
+  adminId   String?
+  createdAt DateTime @default(now())
 }

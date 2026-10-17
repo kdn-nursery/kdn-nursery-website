@@ -62,17 +62,19 @@ The project is **in development**. Features documented as planned or future enha
 
 ### Current implementation
 
-Milestone 1 is implemented on `feature/kdn-foundation`. Customers can browse a bilingual sample catalogue. Online ordering, payments and administration are not available yet.
+Milestone 1 is implemented. The admin panel is implemented on `feature/admin-panel` and stays closed until PostgreSQL, `AUTH_SECRET` and an admin account are configured. Online ordering and payments are not available yet.
 
 | Area | State |
 |---|---|
 | Home, shop, category, product, plant-care, about, contact, wishlist, cart and draft policy pages | Implemented in English and Tamil |
 | Search by English or Tamil product name, category filter and stock limits | Implemented |
 | Wishlist and cart saved on the device | Implemented. Checkout is not open |
-| Prices, stock, photographs and Tamil product copy | Demo data, marked for owner review |
+| Prices, stock and Tamil product copy | Demo data, marked for owner review |
+| Plant photographs | Licensed species photos for verified plants. Four plants still say “Photo coming soon”. Sources are in `docs/IMAGE_SOURCES.md`. These are not the nursery’s own photos |
 | PostgreSQL catalogue | Prepared with Prisma. Not connected in the sample preview |
 | WhatsApp enquiry | Shown only after `NEXT_PUBLIC_WHATSAPP_NUMBER` is set |
-| Admin, checkout, Razorpay, order tracking and Plant Finder | Planned |
+| Admin panel | Implemented. Sign-in, plants, categories, photographs, website content, settings and an empty orders view. It does not open in demo mode. See `docs/ADMIN_GUIDE.md` |
+| Checkout, Razorpay, order tracking and Plant Finder | Planned |
 | `dev` branch | Blocked. The remote currently has `main` only |
 
 Windows setup is in `docs/SETUP.md`. Progress is in `docs/PROGRESS.md`. Open decisions are in `docs/OWNER_DECISIONS.md`.
@@ -444,6 +446,7 @@ Open the application at:
 | `npx prisma migrate dev --name <migration-name>` | Create and apply a development migration |
 | `npx prisma generate` | Generate Prisma Client |
 | `npx prisma db seed` | Run the configured seed script |
+| `npm run admin:create` | Create or rotate the initial admin. Set `ADMIN_USERNAME` and `ADMIN_PASSWORD` only for that command |
 
 A command will work only if the corresponding package, script or configuration exists. Check `package.json` and the Prisma configuration before relying on it.
 

@@ -38,7 +38,7 @@
     "lede": "Browse herbal, flowering and fruit plants, read draft care notes, and keep a wishlist or cart on this device. Online payment is not open yet.",
     "shopCta": "Browse the shop",
     "careCta": "Read plant care",
-    "photoNote": "Illustration placeholder. Nursery photographs will replace these.",
+    "photoNote": "Licensed species photograph. This is not a picture of the Dharmapuri nursery.",
     "categoriesTitle": "Three places to start",
     "categoriesLede": "The first catalogue is planned across these groups. The plants below are a sample, not the full 30–50 product list.",
     "featuredTitle": "Featured in this sample",
@@ -98,7 +98,10 @@
     "saved": "Saved",
     "removeSaved": "Remove from wishlist",
     "translationNote": "Tamil names and care notes are drafts for the owner to review.",
-    "photoNote": "This is an illustration placeholder, not a photograph of this variety.",
+    "photoComingSoon": "Photo coming soon",
+    "photoComingSoonBody": "A verified photograph of this exact plant is not available yet.",
+    "photoCredit": "Photo: {photographer}",
+    "speciesNote": "This photograph shows the species. A young plant from the nursery does not arrive bearing fruit.",
     "relatedCare": "Plant-care guides"
   },
   "Cart": {
