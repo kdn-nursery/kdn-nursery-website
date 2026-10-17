@@ -1,0 +1,15 @@
+---
+description: README is the requirements source for KDN Nursery
+alwaysApply: true
+---
+
+# Requirements
+
+- Treat `README.md` as the business and product specification.
+- Keep business rules, the Git workflow and the planned stack when implementation details change.
+- Update the README when a feature moves between planned, demo, implemented or blocked.
+- Record meaningful route or architecture changes in `docs/IMPLEMENTATION_PLAN.md`.
+
+```md
+<!-- After a milestone, say what is real and what is still sample data. -->
+```

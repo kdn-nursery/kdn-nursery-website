@@ -1,0 +1,215 @@
+{
+  "Meta": {
+    "siteName": "KDN Nursery",
+    "description": "Kaviyadevan Nursery Garden in Dharmapuri. Browse herbal, flowering and fruit plants in English and Tamil. Online ordering is still being prepared.",
+    "homeTitle": "Plants from Dharmapuri",
+    "shopTitle": "Shop",
+    "careTitle": "Plant care",
+    "aboutTitle": "About",
+    "contactTitle": "Contact",
+    "cartTitle": "Cart",
+    "wishlistTitle": "Wishlist",
+    "sampleTitle": "{name}"
+  },
+  "Nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "plantCare": "Plant care",
+    "about": "About",
+    "contact": "Contact",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "menu": "Open menu",
+    "closeMenu": "Close menu",
+    "primary": "Primary",
+    "skip": "Skip to content"
+  },
+  "Language": {
+    "label": "Language",
+    "switchTo": "View this page in {language}"
+  },
+  "Demo": {
+    "label": "Demo catalogue",
+    "body": "Prices, stock, photographs and Tamil wording on this preview are sample development data. They are waiting for the nursery to confirm."
+  },
+  "Home": {
+    "eyebrow": "Kaviyadevan Nursery Garden",
+    "title": "Plants for homes in and around Dharmapuri.",
+    "lede": "Browse herbal, flowering and fruit plants, read draft care notes, and keep a wishlist or cart on this device. Online payment is not open yet.",
+    "shopCta": "Browse the shop",
+    "careCta": "Read plant care",
+    "photoNote": "Illustration placeholder. Nursery photographs will replace these.",
+    "categoriesTitle": "Three places to start",
+    "categoriesLede": "The first catalogue is planned across these groups. The plants below are a sample, not the full 30–50 product list.",
+    "featuredTitle": "Featured in this sample",
+    "featuredLede": "A few plants picked so the shop layout can be reviewed. Featuring will be chosen by the nursery later.",
+    "careTitle": "Care, written plainly",
+    "careLede": "Short guides for watering, light and potting. They are drafts for the owner to correct.",
+    "careLink": "All plant-care guides",
+    "storyTitle": "A nursery in Dharmapuri",
+    "storyBody": "Kaviyadevan Nursery Garden is building an online shop for local customers. The owner is Kaviya Devendhiran. This website introduces the plants and the way orders are planned to work.",
+    "areasTitle": "Service, still being confirmed",
+    "areasBody": "The initial areas under discussion are Dharmapuri Town, Vallampalli, Palacode and Harur. Wider delivery across Tamil Nadu is a later hope. These names are not a delivery promise.",
+    "dispatchTitle": "Dispatch plan",
+    "dispatchBody": "Monday, Tuesday and Wednesday are the planned dispatch days, with an estimated 1–3 days after dispatch. Both the days and the estimate still need confirmation.",
+    "enquiryTitle": "Ask the nursery",
+    "enquiryBody": "WhatsApp is the planned way to enquire. The number, email and Instagram profile have not been added yet."
+  },
+  "Shop": {
+    "eyebrow": "Catalogue",
+    "title": "Shop",
+    "lede": "Search by the English or Tamil plant name. Sample prices are marked, and out-of-stock plants stay out of the cart.",
+    "searchLabel": "Search plants",
+    "searchPlaceholder": "English or Tamil name",
+    "sortLabel": "Sort",
+    "sortFeatured": "Featured",
+    "sortName": "Name",
+    "sortPriceAsc": "Price: low to high",
+    "sortPriceDesc": "Price: high to low",
+    "availabilityLabel": "Availability",
+    "availabilityAll": "All",
+    "available": "Available",
+    "outOfStock": "Out of stock",
+    "apply": "Apply",
+    "results": "{count} plants",
+    "emptyTitle": "No plants match",
+    "emptyBody": "Try another name, or clear the search to see this group again.",
+    "clear": "Clear search",
+    "samplePrice": "Sample price",
+    "sampleStock": "Sample stock: {count}",
+    "view": "View plant",
+    "categoriesLabel": "Categories",
+    "allPlants": "All plants"
+  },
+  "Product": {
+    "careTitle": "Care notes",
+    "bulkTitle": "Sample bulk tier",
+    "bulkLine": "{count} or more: {price} each",
+    "bulkNote": "This tier is development data, not an approved bulk price.",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "add": "Add to cart",
+    "added": "In cart",
+    "unavailable": "Out of stock in this sample",
+    "stockLeft": "{count} in sample stock",
+    "exceeds": "That quantity is above the sample stock.",
+    "save": "Save to wishlist",
+    "saved": "Saved",
+    "removeSaved": "Remove from wishlist",
+    "translationNote": "Tamil names and care notes are drafts for the owner to review.",
+    "photoNote": "This is an illustration placeholder, not a photograph of this variety.",
+    "relatedCare": "Plant-care guides"
+  },
+  "Cart": {
+    "eyebrow": "On this device",
+    "title": "Cart",
+    "lede": "Online ordering is being prepared. This cart is saved only on this device. Checkout and payment are not available yet.",
+    "emptyTitle": "Your cart is empty",
+    "emptyBody": "Add a plant from the shop. Nothing is reserved and nothing is charged.",
+    "browse": "Browse plants",
+    "subtotal": "Indicative sample total",
+    "subtotalNote": "This total uses sample prices on this device. When ordering opens, the server will recalculate prices, delivery and the final amount.",
+    "remove": "Remove",
+    "unavailable": "Out of stock. This line is not included in the total.",
+    "whatsapp": "Enquire on WhatsApp",
+    "whatsappMissing": "A WhatsApp enquiry will appear here after the nursery confirms its number.",
+    "whatsappDraft": "Hello KDN Nursery. I am enquiring about: {items}. This is not an order."
+  },
+  "Wishlist": {
+    "eyebrow": "On this device",
+    "title": "Wishlist",
+    "lede": "Saved in this browser only. No account is required.",
+    "emptyTitle": "Nothing saved yet",
+    "emptyBody": "Save a plant from its page and it will stay on this device.",
+    "browse": "Browse plants",
+    "remove": "Remove"
+  },
+  "Care": {
+    "eyebrow": "Guides",
+    "title": "Plant care",
+    "lede": "Short drafts about watering, light and pots. They are not a guarantee of plant health.",
+    "read": "Read guide",
+    "draft": "Draft for owner review",
+    "back": "All guides"
+  },
+  "About": {
+    "eyebrow": "The nursery",
+    "title": "Kaviyadevan Nursery Garden",
+    "lede": "A plant nursery in Dharmapuri, Tamil Nadu, building a bilingual shop for local customers.",
+    "story": "The nursery is known as KDN Nursery. Kaviya Devendhiran is the owner. The website is meant to help people find plants, understand basic care, and later place an online order or ask a question on WhatsApp.",
+    "localTitle": "Local plans",
+    "localBody": "Pickup at the nursery is planned. The street address, map location and pickup hours are not published yet. Delivery charges will follow an owner-approved order-value table. Free delivery is not part of the current plan.",
+    "paymentTitle": "Payment plan",
+    "paymentBody": "Online payment through Razorpay is planned. Cash on delivery is not planned. Guest checkout is planned, so a customer account will not be required for the first release. None of that is open in this preview."
+  },
+  "Contact": {
+    "eyebrow": "Contact",
+    "title": "Talk to the nursery",
+    "lede": "WhatsApp is the primary channel once the number is confirmed. Email, Instagram and the full address are still to be added.",
+    "place": "Dharmapuri, Tamil Nadu, India",
+    "domain": "Planned website: kdnnursery.in",
+    "whatsapp": "WhatsApp",
+    "whatsappMissing": "Number to be added",
+    "email": "Email",
+    "emailMissing": "Address to be added",
+    "instagram": "Instagram",
+    "instagramMissing": "Profile to be added",
+    "visit": "Visit",
+    "visitBody": "Store visits are welcome once the nursery publishes the address and hours. Please do not rely on a map pin from this page."
+  },
+  "Policies": {
+    "indexTitle": "Policies",
+    "draft": "Draft structure. This is not a published legal policy.",
+    "delivery": {
+      "title": "Delivery",
+      "paragraphs": [
+        "Delivery areas, charges and timing are not final. The areas being discussed are Dharmapuri Town, Vallampalli, Palacode and Harur.",
+        "Charges are planned to follow an order-value table approved by the owner. Free delivery is not currently planned. Serviceable pincodes have not been published.",
+        "Monday, Tuesday and Wednesday are planned dispatch days. An estimate of 1–3 days is under discussion. Neither figure is a commitment yet.",
+        "Nursery pickup is planned. The address, hours and instructions will be added after they are confirmed."
+      ]
+    },
+    "privacy": {
+      "title": "Privacy",
+      "paragraphs": [
+        "This draft explains the kinds of information a future order form may ask for: a name, phone number, delivery address and payment reference.",
+        "The wishlist and cart in this preview stay on your device. They are not sent to the nursery.",
+        "A reviewed privacy notice will be published before customer details are collected for orders."
+      ]
+    },
+    "terms": {
+      "title": "Terms",
+      "paragraphs": [
+        "The shop preview shows sample plants so the website can be reviewed. Sample prices and stock are not an offer to sell.",
+        "When ordering opens, the server will calculate the price, delivery charge and total. A figure stored in the browser will not decide the amount payable.",
+        "These terms are a placeholder for a document the nursery will have reviewed before launch."
+      ]
+    },
+    "cancellation": {
+      "title": "Cancellation and plant condition",
+      "paragraphs": [
+        "The nursery has discussed strict handling of cancellation and replacement after payment. That discussion is not published here as a customer promise.",
+        "Before checkout opens, the cancellation, refund, replacement and damaged-plant terms need a proper review, including consumer-protection requirements.",
+        "This page will be replaced with the reviewed wording. It does not say that refunds or replacements are refused."
+      ]
+    }
+  },
+  "States": {
+    "loading": "Loading plants",
+    "errorTitle": "This page could not be loaded",
+    "errorBody": "Try again. If the catalogue configuration is missing, the preview stays closed rather than showing stand-in data by accident.",
+    "retry": "Try again",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "That address is not part of the nursery site.",
+    "home": "Back to home"
+  },
+  "Footer": {
+    "name": "Kaviyadevan Nursery Garden",
+    "place": "Dharmapuri, Tamil Nadu",
+    "translation": "English and Tamil interface copy is a draft for the owner to review.",
+    "rights": "Private project for Kaviyadevan Nursery Garden.",
+    "policies": "Draft policies",
+    "ordering": "Online ordering is not open."
+  }
+}

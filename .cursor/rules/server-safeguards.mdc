@@ -1,0 +1,20 @@
+---
+description: Server validation, pricing, payments and inventory safeguards
+alwaysApply: true
+---
+
+# Server safeguards
+
+- Validate inputs with Zod on the server. Store money as integer paise.
+- Recalculate prices, delivery and totals on the server. Ignore browser totals.
+- Check stock in a transaction before reserving or selling it.
+- Verify Razorpay signatures and webhook raw bodies on the server.
+- Mark an order paid only after captured status, amount, currency and order id match.
+- Treat duplicate and out-of-order payment events as safe no-ops.
+- A browser redirect is not proof of payment.
+- Keep payment status separate from fulfilment status.
+- Rate-limit guest order lookup and return minimal tracking details.
+- Authenticate every admin route and mutation. No hardcoded admin passwords.
+- Do not log secrets, payment credentials or extra customer data.
+
+Demo catalogue mode may read sample data. It must refuse writes and must not replace a failed production database.

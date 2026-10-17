@@ -1,0 +1,16 @@
+---
+description: English and Tamil support from the start
+alwaysApply: true
+---
+
+# Languages
+
+- Ship English and Tamil together. Put interface copy in `messages/en.json` and `messages/ta.json`.
+- Keep the same page when the language changes, including the query string.
+- Set `<html lang>` and give the language switcher accessible names.
+- Use a Tamil-capable font for Tamil pages.
+- Mark sample Tamil product and guide copy as unverified until the owner reviews it.
+
+```tsx
+<Link href={href} locale="ta" hrefLang="ta" lang="ta">தமிழ்</Link>
+```

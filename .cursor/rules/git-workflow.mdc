@@ -1,0 +1,18 @@
+---
+description: Branch restrictions for KDN Nursery
+alwaysApply: true
+---
+
+# Git
+
+- Start from the latest `dev` branch. If `dev` is missing, stop and report that blocker.
+- Create `feature/`, `fix/` or `docs/` branches. Never commit on `dev` or `main`.
+- Open pull requests against `dev` only. Never push or merge into `main`.
+- Do not force-push, reset, delete branches or merge pull requests unless the owner asks.
+- Do not commit `.env`, credentials, or generated Prisma client output.
+
+```bash
+git switch dev
+git pull origin dev
+git switch -c feature/short-name
+```

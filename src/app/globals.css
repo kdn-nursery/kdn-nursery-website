@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-clay: var(--clay);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-ivory: var(--ivory);
+  --color-leaf: var(--leaf);
+  --font-sans: var(--font-source), var(--font-tamil), sans-serif;
+  --font-display: var(--font-fraunces), var(--font-tamil), serif;
+  --radius-xl: 1.5rem;
+}
+
+:root {
+  --background: #f3eee4;
+  --foreground: #1a2b22;
+  --card: #fbf8f2;
+  --primary: #1b4332;
+  --primary-foreground: #f7f3ea;
+  --secondary: #e6efe4;
+  --secondary-foreground: #1b4332;
+  --muted: #e7e0d2;
+  --muted-foreground: #516259;
+  --accent: #8c5340;
+  --border: #ddd4c4;
+  --ring: #1b4332;
+  --clay: #8c5340;
+  --forest: #1b4332;
+  --forest-deep: #10281e;
+  --ivory: #f7f3ea;
+  --leaf: #3d6b4f;
+}
+
+html[lang="ta"] {
+  --font-display: var(--font-tamil), sans-serif;
+  --font-sans: var(--font-tamil), var(--font-source), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(900px 420px at 0% -10%, rgb(61 107 79 / 0.12), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, rgb(140 83 64 / 0.08), transparent 50%),
+    var(--background);
+  color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #d7e6da;
+  color: #10281e;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 640ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

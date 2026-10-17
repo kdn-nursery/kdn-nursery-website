@@ -1,0 +1,17 @@
+---
+description: Update the progress tracker after each milestone
+alwaysApply: true
+---
+
+# Progress
+
+After each milestone, update:
+
+- `docs/PROGRESS.md` with status, checks and blockers
+- `docs/IMPLEMENTATION_PLAN.md` if scope changed
+- `docs/OWNER_DECISIONS.md` when a decision is still open
+- `README.md` so it matches the running app
+
+Statuses: Not started, In progress, Implemented, Verified, Blocked.
+
+Verified means the relevant checks were run and passed. An untested feature stays Implemented or In progress.

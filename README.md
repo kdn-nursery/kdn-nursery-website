@@ -60,6 +60,30 @@ Build a trusted local nursery brand in Dharmapuri and nearby areas, increase onl
 
 The project is **in development**. Features documented as planned or future enhancements may not yet be implemented. Update this README as implementation progresses so that the documentation accurately reflects the application.
 
+### Current implementation
+
+Milestone 1 is implemented on `feature/kdn-foundation`. Customers can browse a bilingual sample catalogue. Online ordering, payments and administration are not available yet.
+
+| Area | State |
+|---|---|
+| Home, shop, category, product, plant-care, about, contact, wishlist, cart and draft policy pages | Implemented in English and Tamil |
+| Search by English or Tamil product name, category filter and stock limits | Implemented |
+| Wishlist and cart saved on the device | Implemented. Checkout is not open |
+| Prices, stock, photographs and Tamil product copy | Demo data, marked for owner review |
+| PostgreSQL catalogue | Prepared with Prisma. Not connected in the sample preview |
+| WhatsApp enquiry | Shown only after `NEXT_PUBLIC_WHATSAPP_NUMBER` is set |
+| Admin, checkout, Razorpay, order tracking and Plant Finder | Planned |
+| `dev` branch | Blocked. The remote currently has `main` only |
+
+Windows setup is in `docs/SETUP.md`. Progress is in `docs/PROGRESS.md`. Open decisions are in `docs/OWNER_DECISIONS.md`.
+
+The public shop reads an explicit data source:
+
+- `CATALOGUE_DATA_SOURCE=demo` uses the labelled sample catalogue. Production refuses this unless `ALLOW_DEMO_CATALOGUE=true` is set for a non-public preview.
+- `CATALOGUE_DATA_SOURCE=database` requires `DATABASE_URL`. A database failure does not switch to sample data.
+
+Demo mode does not write orders, stock or payments.
+
 ## 🏡 Business Overview
 
 | Detail | Information |
@@ -247,6 +271,18 @@ PostgreSQL may be hosted using a provider such as Neon or Supabase. The final pr
 
 The following is the proposed project structure. Actual folders and files may differ as development progresses.
 
+Milestone 1 nests category and product pages under `shop`, and adds `wishlist`:
+
+```text
+src/app/[locale]/shop/page.tsx
+src/app/[locale]/shop/[category]/page.tsx
+src/app/[locale]/shop/[category]/[product]/page.tsx
+src/app/[locale]/wishlist/page.tsx
+src/app/[locale]/policies/[slug]/page.tsx
+```
+
+Checkout, order status, plant finder and admin routes are not created until those features are real.
+
 ```text
 kdn-nursery-website/
 ├── prisma/
@@ -362,11 +398,19 @@ npm install
 
 ### 4. Configure Environment Variables
 
-Copy the example environment file if it exists:
+Copy the example environment file if it exists.
 
 ```bash
 cp .env.example .env
 ```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+For a local preview without PostgreSQL, set `CATALOGUE_DATA_SOURCE=demo`. Set `ALLOW_DEMO_CATALOGUE=true` only when you intentionally build that preview. See `docs/SETUP.md`.
 
 Add the required development values to `.env`. If `.env.example` has not yet been created, create it using the variable names listed in the Environment Variables section.
 

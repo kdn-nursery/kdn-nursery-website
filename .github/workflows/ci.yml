@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - dev
+      - "feature/**"
+      - "fix/**"
+      - "docs/**"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      CATALOGUE_DATA_SOURCE: demo
+      ALLOW_DEMO_CATALOGUE: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
