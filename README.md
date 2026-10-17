@@ -403,3 +403,181 @@ Dharmapuri, Tamil Nadu, India
 ---
 
 <sub>Private project · © Kaviyadevan Nursery Garden · Dharmapuri, Tamil Nadu</sub>
+
+## 🔀 Development Workflow (Git)
+
+**Golden rule:** Always pull the latest code from `dev` before starting a new feature. Create a separate branch for every feature, bug fix, or task. Push your changes to GitHub and merge them into `dev` through a Pull Request (PR).
+
+**Never work on `main`. Never merge feature branches into `main`.**
+
+### 1. Branching strategy
+
+| Branch | Purpose |
+|---|---|
+| `main` | Do not use or modify |
+| `dev` | Main development and integration branch |
+| `feature/<feature-name>` | New features |
+| `fix/<bug-name>` | Bug fixes |
+| `docs/<change-name>` | Documentation changes |
+
+### 2. Start every new feature
+
+```bash
+# Switch to dev
+git switch dev
+
+# Get the latest code from GitHub
+git pull origin dev
+
+# Create a new branch for the feature
+git switch -c feature/feature-name
+```
+
+Replace `feature/feature-name` with a meaningful name, such as `feature/product-search` or `feature/checkout`.
+
+### 3. Make changes and commit
+
+After implementing and testing your changes:
+
+```bash
+# Check your current branch
+git branch --show-current
+
+# Review changes
+git status
+
+# Stage changes
+git add .
+
+# Commit changes
+git commit -m "feat: add product search"
+```
+
+Use meaningful commit messages. Never commit `.env` files, API keys, passwords, or database credentials.
+
+### 4. Push your feature branch
+
+For the first push:
+
+```bash
+git push -u origin feature/feature-name
+```
+
+For subsequent pushes:
+
+```bash
+git push
+```
+
+### 5. Merge into dev — never main
+
+After pushing your feature branch:
+
+1. Open GitHub.
+2. Create a Pull Request from `feature/feature-name` into `dev`.
+3. Review the changes and resolve any conflicts.
+4. Run the required checks and tests.
+5. Merge the Pull Request into `dev`.
+
+**The target branch must always be `dev`, never `main`.**
+
+### 6. Get the latest dev changes while working
+
+If other developers have merged changes into `dev` while you are working on your feature:
+
+```bash
+# Download the latest remote updates
+git fetch origin
+
+# Ensure you are on your feature branch
+git switch feature/feature-name
+
+# Merge the latest dev changes into your feature branch
+git merge origin/dev
+
+# Push the updated feature branch
+git push
+```
+
+Resolve any conflicts and test your code before pushing.
+
+### 7. After your feature is merged into dev
+
+```bash
+# Switch to dev
+git switch dev
+
+# Pull the latest integrated code
+git pull origin dev
+
+# Delete the completed local feature branch
+git branch -d feature/feature-name
+```
+
+If the remote feature branch has not already been deleted:
+
+```bash
+git push origin --delete feature/feature-name
+```
+
+### 8. Start the next feature
+
+Always repeat this process for every new feature.
+
+```bash
+git switch dev
+git pull origin dev
+git switch -c feature/new-feature-name
+```
+
+Never reuse an old feature branch for an unrelated task.
+
+### 9. Commit message conventions
+
+| Prefix | Purpose | Example |
+|---|---|---|
+| `feat:` | New feature | `feat: add product search` |
+| `fix:` | Bug fix | `fix: correct delivery charges` |
+| `style:` | UI improvements | `style: improve product cards` |
+| `refactor:` | Code restructuring | `refactor: simplify pricing logic` |
+| `docs:` | Documentation | `docs: update README` |
+| `test:` | Testing | `test: add checkout tests` |
+| `chore:` | Maintenance | `chore: update dependencies` |
+
+### 10. Quick reference
+
+```bash
+# Start a new feature
+git switch dev
+git pull origin dev
+git switch -c feature/feature-name
+
+# Commit your changes
+git add .
+git commit -m "feat: describe your change"
+
+# Push your feature branch
+git push -u origin feature/feature-name
+
+# Get the latest dev changes into your feature
+git fetch origin
+git merge origin/dev
+git push
+
+# After the PR is merged into dev
+git switch dev
+git pull origin dev
+git branch -d feature/feature-name
+```
+
+### Team rules
+
+- Always start from the latest `dev` branch.
+- Create a new branch for every feature or independent task.
+- Never work directly on `dev` or `main`.
+- Push changes to your feature branch, not directly to `dev`.
+- Create Pull Requests targeting `dev` only.
+- Never push, merge, or make changes to `main`.
+- Test changes before merging into `dev`.
+- Keep commits small and meaningful.
+- Never commit secrets, credentials, or private customer data.
